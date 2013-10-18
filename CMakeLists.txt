@@ -2,16 +2,13 @@ cmake_minimum_required (VERSION 2.6)
 project (HELLO) 
 
 
-set(VREP_DIR "/opt/v-rep")
+set(VREP_DIR "." CACHE PATH "v-rep directory")
 
 set(CMAKE_C_FLAGS "-DNON_MATLAB_PARSING -DMAX_EXT_API_CONNECTIONS=255 -Wno-write-strings")
 
 
 EXECUTE_PROCESS(COMMAND make -f v_repExtRemoteApi_Makefile
     WORKING_DIRECTORY ${VREP_DIR}/programming )
-EXECUTE_PROCESS(COMMAND mv remoteApi.so libremotApi.so
-    WORKING_DIRECTORY ${VREP_DIR}/programming )
-
 
 include_directories (
     include

@@ -5,23 +5,23 @@
  *      Author: matthias
  */
 
-#ifndef YOUBOT_H_
-#define YOUBOT_H_
+#ifndef VREPJOINTINTERFACE_H_
+#define VREPJOINTINTERFACE_H_
 
-#include "RobotInterface.h"
+#include "JointInterface.h"
 
 #include <vector>
 
-class VRepRobotInterface: public RobotInterface {
+class VRepJointInterface: public JointInterface {
 private:
 
 	int clientID;
 	std::vector<int> handles;
 
 public:
-	VRepRobotInterface(const char* connection_ip, int connection_port, const char* joint_names[]);
+	VRepJointInterface(const char* connection_ip, int connection_port, const char* joint_names[]);
 
-	virtual ~VRepRobotInterface();
+	virtual ~VRepJointInterface();
 
 	void setJointPosition(int index, double pos);
 

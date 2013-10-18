@@ -5,10 +5,10 @@
  *      Author: matthias
  */
 
-#ifndef ROBOTINTERFACE_H_
-#define ROBOTINTERFACE_H_
+#ifndef JOINTINTERFACE_H_
+#define JOINTINTERFACE_H_
 
-class RobotInterface {
+class JointInterface {
 public:
 
 	virtual void setJointPosition(int index, double pos) = 0;

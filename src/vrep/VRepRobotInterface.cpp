@@ -5,7 +5,7 @@
  *      Author: matthias
  */
 
-#include "vrep/VRepRobotInterface.h"
+#include "vrep/VRepJointInterface.h"
 
 
 extern "C" {
@@ -14,7 +14,7 @@ extern "C" {
 #include "v_repConst.h"
 
 
-VRepRobotInterface::VRepRobotInterface(const char* connection_ip, int connection_port, const char* joint_names[]) {
+VRepJointInterface::VRepJointInterface(const char* connection_ip, int connection_port, const char* joint_names[]) {
 
 	clientID=simxStart(connection_ip,connection_port,true,true,2000,5);
 	int handle = 0;
@@ -31,11 +31,11 @@ VRepRobotInterface::VRepRobotInterface(const char* connection_ip, int connection
 
 }
 
-VRepRobotInterface::~VRepRobotInterface() {
+VRepJointInterface::~VRepJointInterface() {
 	simxFinish(clientID);
 }
 
-void VRepRobotInterface::setJointPosition(int index, double pos) {
+void VRepJointInterface::setJointPosition(int index, double pos) {
 
 	if (simxGetConnectionId(clientID) != -1) {
 		//set joint to position mode
@@ -46,7 +46,7 @@ void VRepRobotInterface::setJointPosition(int index, double pos) {
 	}
 }
 
-void VRepRobotInterface::setJointPosition(int index[], double positions[], int size) {
+void VRepJointInterface::setJointPosition(int index[], double positions[], int size) {
 
 	for (int i=0; i < size; i++) {
 		setJointPosition(index[i], positions[i]);
@@ -54,7 +54,7 @@ void VRepRobotInterface::setJointPosition(int index[], double positions[], int s
 }
 
 
-void VRepRobotInterface::setJointVelocity(int index, double vel) {
+void VRepJointInterface::setJointVelocity(int index, double vel) {
 
 	if (simxGetConnectionId(clientID) != -1) {
 		//set joint to velocity mode
@@ -66,7 +66,7 @@ void VRepRobotInterface::setJointVelocity(int index, double vel) {
 	}
 }
 
-void VRepRobotInterface::setJointVelocity(int index[], double velocities[], int size) {
+void VRepJointInterface::setJointVelocity(int index[], double velocities[], int size) {
 
 	for (int i=0; i < size; i++) {
 		setJointVelocity(index[i], velocities[i]);
@@ -74,7 +74,7 @@ void VRepRobotInterface::setJointVelocity(int index[], double velocities[], int 
 }
 
 
-double VRepRobotInterface::getJointPosition(int index) {
+double VRepJointInterface::getJointPosition(int index) {
 
 	float position;
 
@@ -86,6 +86,6 @@ double VRepRobotInterface::getJointPosition(int index) {
 }
 
 
-double VRepRobotInterface::getJointVelocity(int index) {
+double VRepJointInterface::getJointVelocity(int index) {
 	return 0;
 }

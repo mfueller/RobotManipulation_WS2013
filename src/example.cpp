@@ -12,7 +12,7 @@ using namespace std;
 #include "extApi.h"
 
 
-#include "vrep/VRepRobotInterface.h"
+#include "vrep/VRepJointInterface.h"
 
 const char* connection_ip = "127.0.0.1";
 const int connection_port = 19998;
@@ -30,13 +30,13 @@ const char* joint_names[] = {
 
 int main() {
 
-	RobotInterface* robot = new VRepRobotInterface(connection_ip, connection_port, joint_names);
+	VRepJointInterface* jointInterface = new VRepJointInterface(connection_ip, connection_port, joint_names);
 
 
 	//setting a single joint
-	robot->setJointPosition(0, 0);
+	jointInterface->setJointPosition(0, 0);
 	sleep(1);
-	robot->setJointVelocity(0, 0.1);
+	jointInterface->setJointVelocity(0, 0.1);
 	sleep(2);
 
 
@@ -44,7 +44,7 @@ int main() {
 	int index[3] = {0, 1, 2};
 	double positions[3] = {0.1, 0.2, -0.5};
 
-	robot->setJointPosition(index, positions, 3);
+	jointInterface->setJointPosition(index, positions, 3);
 
 	sleep(2);
 

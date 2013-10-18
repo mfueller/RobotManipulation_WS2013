@@ -7,6 +7,12 @@ set(VREP_DIR "/opt/v-rep")
 set(CMAKE_C_FLAGS "-DNON_MATLAB_PARSING -DMAX_EXT_API_CONNECTIONS=255 -Wno-write-strings")
 
 
+EXECUTE_PROCESS(COMMAND make -f v_repExtRemoteApi_Makefile
+    WORKING_DIRECTORY ${VREP_DIR}/programming )
+EXECUTE_PROCESS(COMMAND mv remoteApi.so libremotApi.so
+    WORKING_DIRECTORY ${VREP_DIR}/programming )
+
+
 include_directories (
     include
     ${VREP_DIR}/programming/common
@@ -26,6 +32,6 @@ add_executable (example
     ${VREP_DIR}/programming/remoteApi/extApiPlatform.c
 ) 
 
-target_link_libraries(example remoteApi v_repExtRemoteApi pthread)
+target_link_libraries(example v_repExtRemoteApi pthread)
 
 

@@ -1,17 +1,13 @@
 
 
 compile:
-
-cmake <path_to_CMakeLists.txt> -DVREP_DIR:PATH=<path_to_v-rep>
+ $ cmake <path_to_CMakeLists.txt> -DVREP_DIR:PATH=<path_to_v-rep>
 
 example
-
-
-cd RobotManipulation
-mkdir build
-cmake .. -DVREP_DIR:PATH=/opt/v-rep
-make
-
+ $ cd RobotManipulation
+ $ mkdir build
+ $ cmake .. -DVREP_DIR:PATH=/opt/v-rep
+ $ make
 
 start the example:
-./example
+ $ ./example

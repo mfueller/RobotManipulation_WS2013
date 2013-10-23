@@ -1,4 +1,6 @@
 
+download and extract v-rep, e.g. into /opt/vrep
+www.v-rep.eu
 
 compile:
  $ cmake <path_to_CMakeLists.txt> -DVREP_DIR:PATH=<path_to_v-rep>

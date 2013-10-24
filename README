@@ -1,6 +1,17 @@
-
 download and extract v-rep, e.g. into /opt/vrep
 www.v-rep.eu
+
+- remove the following comments from remoteApiConnections.txt in the v-rep directory (/opt/v-rep)
+portIndex1_port                 = 19998
+portIndex1_debug                = true
+portIndex1_syncSimTrigger       = false
+
+- start v-rep by v-rep.sh
+
+- load /scence/youbot_arm
+
+- start the simulation
+
 
 compile:
  $ cmake <path_to_CMakeLists.txt> -DVREP_DIR:PATH=<path_to_v-rep>

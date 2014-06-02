@@ -20,8 +20,7 @@ INCLUDE_DIRECTORIES(
 )
 
 
-EXECUTE_PROCESS(COMMAND make -f v_repExtRemoteApi_Makefile
-    WORKING_DIRECTORY ${VREP_DIR}/programming )
+EXECUTE_PROCESS(COMMAND make WORKING_DIRECTORY ${VREP_DIR}/programming/v_repExtRemoteApi )
 
 include_directories (
     include

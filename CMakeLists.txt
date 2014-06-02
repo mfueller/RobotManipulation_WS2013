@@ -32,7 +32,7 @@ include_directories (
 ) 
 
 link_directories(
-    ${VREP_DIR}/programming
+    ${VREP_DIR}/programming/v_repExtRemoteApi/lib
 )
 
 add_executable (example 

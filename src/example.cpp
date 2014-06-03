@@ -47,7 +47,7 @@ int main() {
 
 
         //connect with youBot
-	YouBotBase youBotBase("youbot-base");
+	YouBotBase youBotBase("youbot-base", YOUBOT_CONFIGURATIONS_DIR);
 	youBotBase.doJointCommutation();
 
 	YouBotManipulator youBotManipulator("youbot-manipulator", YOUBOT_CONFIGURATIONS_DIR);
